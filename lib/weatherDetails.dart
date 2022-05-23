@@ -31,8 +31,8 @@ class _WeatherDetailsPageState extends State<WeatherDetails> {
   }
 
   weeklyWeather(
-    List<WeatherList> weatherList,
-  ) {
+      List<WeatherList> weatherList,
+      ) {
     List<Map> weeklyListDay1 = [];
     List<Map> weeklyListDay2 = [];
     List<Map> weeklyListDay3 = [];
@@ -116,10 +116,11 @@ class _WeatherDetailsPageState extends State<WeatherDetails> {
     return Scaffold(
         body: OrientationBuilder(
             builder: (BuildContext context, Orientation orientation) =>
-                orientation == Orientation.portrait
-                    ? WeatherDetailsPortrait(
-                        this.widget.cityDetails, weatherReport)
-                    : WeatherDetailsLandscape(
-                        this.widget.cityDetails, weatherReport)));
+            // checking orientation mode
+            orientation == Orientation.portrait
+                ? WeatherDetailsPortrait(
+                this.widget.cityDetails, weatherReport)
+                : WeatherDetailsLandscape(
+                this.widget.cityDetails, weatherReport)));
   }
 }

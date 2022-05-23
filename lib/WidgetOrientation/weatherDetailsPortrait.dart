@@ -52,7 +52,7 @@ class _WeatherDetailsPortraitPageState extends State<WeatherDetailsPortrait> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.only(end: SizeConfig.padding16),
+                      EdgeInsetsDirectional.only(end: SizeConfig.padding16),
                       child: Icon(
                         Icons.segment,
                       ),
@@ -74,10 +74,10 @@ class _WeatherDetailsPortraitPageState extends State<WeatherDetailsPortrait> {
             ),
           ),
         ),
+        // list view to show weather daily
         ListView.builder(
           shrinkWrap: true,
           padding: EdgeInsetsDirectional.zero,
-// physics: NeverScrollableScrollPhysics(),
           itemCount: this.widget.weatherReport.length,
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
@@ -109,17 +109,17 @@ class _WeatherDetailsPortraitPageState extends State<WeatherDetailsPortrait> {
                           Row(
                             children: [
                               Text(TemperatureCalculation()
-                                      .convertKelvinToCelsius(this
-                                          .widget
-                                          .weatherReport[index]["temp"]) +
+                                  .convertKelvinToCelsius(this
+                                  .widget
+                                  .weatherReport[index]["temp"]) +
                                   "\u00B0"),
                               const SizedBox(
                                 width: 8,
                               ),
                               Text(
                                 TemperatureCalculation().convertKelvinToCelsius(
-                                        this.widget.weatherReport[index]
-                                            ["max_temp"]) +
+                                    this.widget.weatherReport[index]
+                                    ["max_temp"]) +
                                     "\u00B0",
                                 style: TextStyle(color: Color(0xFF9EAAAF)),
                               ),

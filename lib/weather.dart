@@ -43,11 +43,12 @@ class _WeatherPageState extends State<Weather> {
           ),
           child: OrientationBuilder(
               builder: (BuildContext context, Orientation orientation) =>
-                  orientation == Orientation.portrait
-                      ? WeatherPortraitOrientation()
-                          .portraitMode(weatherBlocs, context)
-                      : WeatherLandscapeOrientation()
-                          .landscapeMode(weatherBlocs, context))),
+              // checking orientation mode
+              orientation == Orientation.portrait
+                  ? WeatherPortraitOrientation()
+                  .portraitMode(weatherBlocs, context)
+                  : WeatherLandscapeOrientation()
+                  .landscapeMode(weatherBlocs, context))),
     );
   }
 }

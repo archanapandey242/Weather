@@ -26,6 +26,7 @@ class WeatherLandscapeOrientation {
                             padding: EdgeInsetsDirectional.only(
                                 start: SizeConfig.padding170,
                                 top: SizeConfig.padding16),
+                            //city name header
                             child: Text(
                               snapshot.data[0].cityDetails.cityName,
                               style: TextStyle(
@@ -43,10 +44,10 @@ class WeatherLandscapeOrientation {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.only(top: SizeConfig.padding45),
+                      EdgeInsetsDirectional.only(top: SizeConfig.padding45),
                       child: Text(
                         DateAndTime.returnTodayDate(
-                                snapshot.data[0].weatherList[0].dateTime)
+                            snapshot.data[0].weatherList[0].dateTime)
                             ? "Today"
                             : "",
                         style: TextStyle(
@@ -57,7 +58,7 @@ class WeatherLandscapeOrientation {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.only(top: SizeConfig.padding6),
+                      EdgeInsetsDirectional.only(top: SizeConfig.padding6),
                       child: Text(
                         DateAndTime.returnTodayDateAndDays(
                             snapshot.data[0].weatherList[0].dateTime),
@@ -69,12 +70,12 @@ class WeatherLandscapeOrientation {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.only(top: SizeConfig.padding45),
+                      EdgeInsetsDirectional.only(top: SizeConfig.padding45),
                       child: Text(
                         TemperatureCalculation().convertKelvinToCelsius(snapshot
-                                .data[0].weatherList[0].mainWeather.temp) +
-                            "\u2103",
-                        style: TextStyle(
+                            .data[0].weatherList[0].mainWeather.temp) +
+                            "\u2103",// calling method to convert temp from kelvin to celsius
+                        style: const TextStyle(
                             color: Colors.white,
                             fontSize: 45,
                             fontWeight: FontWeight.w700),
@@ -82,7 +83,7 @@ class WeatherLandscapeOrientation {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.only(top: SizeConfig.padding6),
+                      EdgeInsetsDirectional.only(top: SizeConfig.padding6),
                       child: Text(
                         "Feels like ${TemperatureCalculation().convertKelvinToCelsius(snapshot.data[0].weatherList[0].mainWeather.temp) + "\u00B0"}",
                         style: TextStyle(
@@ -102,7 +103,7 @@ class WeatherLandscapeOrientation {
                               children: [
                                 Text(
                                   DateAndTime.returnTodayDate(snapshot
-                                          .data[0].weatherList[0].dateTime)
+                                      .data[0].weatherList[0].dateTime)
                                       ? "Today"
                                       : "",
                                   style: TextStyle(
@@ -131,7 +132,7 @@ class WeatherLandscapeOrientation {
                                   MaterialPageRoute(
                                       builder: (context) => WeatherDetails(
                                           snapshot.data[0].weatherList,
-                                          snapshot.data[0].cityDetails)),
+                                          snapshot.data[0].cityDetails)),// calling weather details page to show next 5 days of weather details
                                 );
                               },
                               child: Text(
@@ -149,6 +150,7 @@ class WeatherLandscapeOrientation {
                       color: Colors.white12,
                       thickness: 1,
                     ),
+                    // showing hourly weather
                     Container(
                         height: 200,
                         child: ListView.builder(
@@ -160,24 +162,25 @@ class WeatherLandscapeOrientation {
                             itemBuilder: (BuildContext context, index) {
                               return HourlyWeatherWidget()
                                   .hourlyWeatherLandscape(
-                                      context,
-                                      snapshot
-                                          .data[0].weatherList[index].dateTime,
-                                      TemperatureCalculation()
-                                          .convertKelvinToCelsius(snapshot
-                                              .data[0]
-                                              .weatherList[index]
-                                              .mainWeather
-                                              .temp),
-                                      WeatherIcon().weatherIcon(snapshot
-                                          .data[0]
-                                          .weatherList[index]
-                                          .weatherStatus[0]
-                                          .main));
+                                  context,
+                                  snapshot
+                                      .data[0].weatherList[index].dateTime,
+                                  TemperatureCalculation()
+                                      .convertKelvinToCelsius(snapshot
+                                      .data[0]
+                                      .weatherList[index]
+                                      .mainWeather
+                                      .temp),
+                                  WeatherIcon().weatherIcon(snapshot
+                                      .data[0]
+                                      .weatherList[index]
+                                      .weatherStatus[0]
+                                      .main));
                             })),
                     const SizedBox(
                       height: 70,
                     ),
+                    // showing bottom view to display sunrise, sunset, humidity etc.
                     Container(
                       height: 600,
                       color: Colors.transparent,
@@ -203,7 +206,7 @@ class WeatherLandscapeOrientation {
                                             topRight: Radius.circular(40.0),
                                             bottomLeft: Radius.circular(40.0),
                                             bottomRight:
-                                                Radius.circular(40.0))),
+                                            Radius.circular(40.0))),
                                   ),
                                 ),
                               ),
@@ -213,11 +216,11 @@ class WeatherLandscapeOrientation {
                                     end: SizeConfig.padding50),
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  MainAxisAlignment.spaceBetween,
                                   children: [
                                     Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         Padding(
                                           padding: EdgeInsetsDirectional.only(
@@ -292,7 +295,7 @@ class WeatherLandscapeOrientation {
                                     ),
                                     Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         Padding(
                                           padding: EdgeInsetsDirectional.only(

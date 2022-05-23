@@ -77,11 +77,11 @@ class _WeatherDetailsLandscapePageState extends State<WeatherDetailsLandscape> {
             ),
           ),
         ),
+        // list view to show weather daily
         Expanded(
           child: ListView.builder(
             shrinkWrap: true,
             padding: EdgeInsetsDirectional.zero,
-// physics: NeverScrollableScrollPhysics(),
             itemCount: this.widget.weatherReport.length,
             itemBuilder: (BuildContext context, int index) {
               return ListTile(
@@ -113,18 +113,18 @@ class _WeatherDetailsLandscapePageState extends State<WeatherDetailsLandscape> {
                             Row(
                               children: [
                                 Text(TemperatureCalculation()
-                                        .convertKelvinToCelsius(this
-                                            .widget
-                                            .weatherReport[index]["temp"]) +
+                                    .convertKelvinToCelsius(this
+                                    .widget
+                                    .weatherReport[index]["temp"]) +
                                     "\u00B0"),
                                 const SizedBox(
                                   width: 8,
                                 ),
                                 Text(
                                   TemperatureCalculation()
-                                          .convertKelvinToCelsius(
-                                              this.widget.weatherReport[index]
-                                                  ["max_temp"]) +
+                                      .convertKelvinToCelsius(
+                                      this.widget.weatherReport[index]
+                                      ["max_temp"]) +
                                       "\u00B0",
                                   style: TextStyle(color: Color(0xFF9EAAAF)),
                                 ),
